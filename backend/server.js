@@ -109,10 +109,17 @@ app.post("/chat", async (req, res) => {
 
     return res.json({ reply });
   } catch (error) {
-    console.error(error);
+    console.error("AI Error:", error);
+
+    // If it's a known error from the AI SDK, it usually has a status code
+    if (error.status) {
+      return res.status(502).json({
+        reply: "The AI service is temporarily unavailable or busy. Please try again soon.",
+      });
+    }
 
     return res.status(500).json({
-      reply: "Sorry, something went wrong.",
+      reply: "Sorry, the server encountered an unexpected error.",
     });
   }
 });

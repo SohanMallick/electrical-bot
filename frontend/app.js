@@ -74,6 +74,11 @@ async function sendMessage(event) {
     });
 
     if (!res.ok) {
+      if (res.status === 502 || res.status === 504) {
+        throw new Error("The server is waking up or temporarily unavailable. Please wait a minute and try again.");
+      } else if (res.status === 500) {
+        throw new Error("The AI service is currently unavailable. Please try again later.");
+      }
       throw new Error(`Request failed with status ${res.status}`);
     }
 
@@ -82,9 +87,18 @@ async function sendMessage(event) {
     chat.insertAdjacentHTML("beforeend", createMessageMarkup("bot", data.reply));
   } catch (error) {
     console.error(error);
+    
+    // If it's a TypeError, it usually means the fetch failed entirely (e.g. server is down/client is offline)
+    let errorMessage = "Unable to reach the server. Please check your connection or try again later.";
+    
+    // If it's an Error we threw manually, use our custom message
+    if (error instanceof Error && error.message !== "Failed to fetch") {
+      errorMessage = error.message;
+    }
+
     chat.insertAdjacentHTML(
       "beforeend",
-      createMessageMarkup("bot", "Unable to reach the server.")
+      createMessageMarkup("bot", errorMessage)
     );
   } finally {
     sendButton.disabled = false;
