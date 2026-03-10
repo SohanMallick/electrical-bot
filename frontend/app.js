@@ -66,8 +66,9 @@ async function sendMessage(event) {
   removeEmptyState(chat);
   chat.insertAdjacentHTML("beforeend", createMessageMarkup("user", message));
   chat.scrollTop = chat.scrollHeight;
-  input.value = "";
-  input.focus();
+  
+  // Disable the input and button immediately to prevent spamming
+  input.disabled = true;
   sendButton.disabled = true;
   sendButton.textContent = "Sending...";
 
@@ -93,6 +94,8 @@ async function sendMessage(event) {
 
     const data = await res.json();
 
+    // Success! Clear the input now.
+    input.value = "";
     chat.insertAdjacentHTML("beforeend", createMessageMarkup("bot", data.reply));
   } catch (error) {
     console.error(error);
@@ -110,8 +113,11 @@ async function sendMessage(event) {
       createMessageMarkup("bot", errorMessage)
     );
   } finally {
+    // Always re-enable the inputs, whether success or failure
+    input.disabled = false;
     sendButton.disabled = false;
     sendButton.textContent = "Send";
+    input.focus();
   }
 
   chat.scrollTop = chat.scrollHeight;

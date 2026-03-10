@@ -386,6 +386,13 @@ body {
   cursor: wait;
 }
 
+#message:disabled {
+  background: #e2e8f0;
+  color: #64748b;
+  border-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

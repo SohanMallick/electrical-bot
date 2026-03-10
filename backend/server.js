@@ -68,31 +68,13 @@ ${question}
 Give a clear safety focused answer.
 `;
 
-  let lastError;
+  // Use the best available free tier model
+  const model = genAI.getGenerativeModel({
+    model: "gemini-2.0-flash",
+  });
 
-  for (const modelName of MODEL_NAMES) {
-    const model = genAI.getGenerativeModel({
-      model: modelName,
-    });
-
-    for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
-      try {
-        const result = await model.generateContent(prompt);
-        return result.response.text();
-      } catch (error) {
-        lastError = error;
-
-        if (error.status !== 503 || attempt === MAX_RETRIES) {
-          break;
-        }
-
-        const delayMs = attempt * 1000;
-        await new Promise((resolve) => setTimeout(resolve, delayMs));
-      }
-    }
-  }
-
-  throw lastError;
+  const result = await model.generateContent(prompt);
+  return result.response.text();
 }
 
 app.post("/chat", async (req, res) => {
