@@ -8,7 +8,16 @@ function escapeHtml(value) {
 }
 
 function createMessageMarkup(role, content) {
-  const safeContent = escapeHtml(content).replaceAll("\n", "<br>");
+  let safeContent;
+  
+  if (role === 'bot') {
+      // Parse markdown and sanitize HTML
+      safeContent = DOMPurify.sanitize(marked.parse(content));
+  } else {
+      // Plain text escape for user messages
+      safeContent = escapeHtml(content).replaceAll("\n", "<br>");
+  }
+
   const label = role === "user" ? "Worker" : "Assistant";
   const warningClass = role === "bot" && /danger|warning|risk|emergency|shock/i.test(content)
     ? " warning"
@@ -17,7 +26,7 @@ function createMessageMarkup(role, content) {
   return `
 <article class="message ${role}${warningClass}">
   <span class="message-label">${label}</span>
-  <div>${safeContent}</div>
+  <div class="message-content">${safeContent}</div>
 </article>
 `;
 }
