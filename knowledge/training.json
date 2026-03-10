@@ -1,0 +1,320 @@
+{
+  "intents":[
+
+{
+"tag":"isolation_steps",
+"patterns":[
+"gimme the steps",
+"how to isolate a line",
+"steps for isolation",
+"isolation procedure",
+"how to shut down circuit",
+"how to de energize equipment",
+"how to isolate equipment",
+"procedure before working on line",
+"how to make circuit safe",
+"isolation steps for electrical work",
+"how to disconnect power safely",
+"what is isolation process"
+],
+"responses":[
+"Isolation procedure: Identify the circuit, notify control room, open isolator, apply lockout tagout, test for absence of voltage, and apply portable earths."
+]
+},
+
+{
+"tag":"ppe",
+"patterns":[
+"what ppe do i need",
+"safety equipment required",
+"what gear should i wear",
+"ppe for electrical work",
+"electrical worker safety gear",
+"arc flash protection gear",
+"protective equipment for line work",
+"what equipment protects workers",
+"mandatory safety equipment",
+"what clothing for electrical work",
+"safety gear for electricians",
+"worker protective equipment"
+],
+"responses":[
+"Required PPE includes insulated gloves, arc flash protective clothing, helmet, eye protection, and safety boots."
+]
+},
+
+{
+"tag":"hazards",
+"patterns":[
+"what hazards should i check",
+"common hazards",
+"danger in electrical work",
+"risks in line maintenance",
+"hazards in distribution network",
+"things that can go wrong",
+"danger during line work",
+"risks when climbing pole",
+"hazards before electrical work",
+"what dangers exist",
+"electrical work hazards",
+"site hazards check"
+],
+"responses":[
+"Common hazards include exposed live conductors, unstable poles, wet weather conditions, traffic hazards, and equipment failure."
+]
+},
+
+{
+"tag":"overhead_lines",
+"patterns":[
+"rules for overhead line work",
+"working on power poles",
+"safety for pole climbing",
+"line mechanic safety",
+"procedures for overhead lines",
+"how to repair overhead line",
+"rules for power line maintenance",
+"working on high poles",
+"how to maintain overhead conductor",
+"overhead electrical line safety",
+"pole climbing safety rules",
+"overhead line maintenance rules"
+],
+"responses":[
+"Workers must inspect poles before climbing, maintain safe distance from live lines, wear fall protection, and use insulated tools."
+]
+},
+
+{
+"tag":"underground_cables",
+"patterns":[
+"rules for underground cables",
+"cable jointing safety",
+"working with underground cable",
+"how to repair underground cable",
+"excavation cable safety",
+"what to check before digging",
+"locating underground cables",
+"cable maintenance rules",
+"underground power line safety",
+"cable installation procedure",
+"digging near electrical cable",
+"underground cable protection"
+],
+"responses":[
+"Before working on underground cables locate the cable path, isolate the circuit, and follow excavation safety procedures."
+]
+},
+
+{
+"tag":"substation_safety",
+"patterns":[
+"substation safety rules",
+"working inside substation",
+"substation maintenance rules",
+"substation hazards",
+"entering electrical substation",
+"substation worker safety",
+"rules inside power station",
+"substation inspection safety",
+"transformer station safety",
+"substation electrical risk",
+"who can enter substation",
+"substation access rules"
+],
+"responses":[
+"Only authorised personnel may enter substations. Workers must maintain safe distance from live equipment and follow switching procedures."
+]
+},
+
+{
+"tag":"lockout_tagout",
+"patterns":[
+"what is lockout tagout",
+"why use loto",
+"lockout procedure",
+"tagout safety process",
+"why lock equipment",
+"how lockout works",
+"what is loto safety",
+"lock tag procedure",
+"equipment lock safety",
+"how to lock equipment",
+"why tagging required",
+"lockout system explanation"
+],
+"responses":[
+"Lockout tagout prevents equipment from being energised during maintenance. Workers isolate the circuit, apply locks, attach warning tags, and verify isolation."
+]
+},
+
+{
+"tag":"electric_shock",
+"patterns":[
+"what if someone gets electric shock",
+"person electrocuted what to do",
+"emergency electric accident",
+"shock emergency procedure",
+"worker touched live wire",
+"how to respond to electric shock",
+"first aid electric shock",
+"power accident response",
+"electric injury help",
+"worker hit by electricity",
+"shock rescue steps",
+"emergency electrical incident"
+],
+"responses":[
+"Stop work immediately, isolate the power source, call emergency services, and provide first aid if trained."
+]
+},
+
+{
+"tag":"distribution_network",
+"patterns":[
+"what is distribution network",
+"how electricity reaches homes",
+"power distribution explanation",
+"distribution system voltage",
+"what are distribution lines",
+"how electricity is delivered",
+"how power grid works",
+"distribution infrastructure",
+"power network components",
+"electric grid explanation",
+"distribution transformer role",
+"what equipment distributes electricity"
+],
+"responses":[
+"Electrical distribution networks deliver electricity from substations to homes and businesses typically at voltages between 400V and 33kV."
+]
+},
+
+{
+"tag":"transformer_work",
+"patterns":[
+"how transformer works",
+"transformer maintenance rules",
+"distribution transformer safety",
+"repair transformer procedure",
+"transformer inspection steps",
+"checking transformer oil",
+"transformer overheating cause",
+"transformer worker safety",
+"maintenance of transformer",
+"transformer electrical hazard",
+"how to service transformer",
+"transformer installation safety"
+],
+"responses":[
+"Transformers convert voltage levels in the electrical network. Workers must isolate equipment, inspect insulation, and follow maintenance procedures."
+]
+},
+
+{
+"tag":"weather_risks",
+"patterns":[
+"working during rain safety",
+"storm electrical hazard",
+"bad weather electrical risk",
+"lightning risk line workers",
+"rain hazards for electrical work",
+"storm damage power lines",
+"wind effect power lines",
+"weather safety line work",
+"wet conditions electrical danger",
+"storm repair procedures",
+"working in lightning risk",
+"power network storm safety"
+],
+"responses":[
+"Wet weather increases electrical hazards. Workers must delay work if conditions are unsafe and ensure equipment insulation is intact."
+]
+},
+
+{
+"tag":"inspection",
+"patterns":[
+"how to inspect power line",
+"inspection procedure electrical line",
+"pole inspection steps",
+"what to check before maintenance",
+"line inspection rules",
+"equipment inspection process",
+"check electrical infrastructure",
+"distribution line inspection",
+"power pole condition check",
+"maintenance inspection checklist",
+"worker inspection procedure",
+"network equipment inspection"
+],
+"responses":[
+"Before maintenance workers inspect poles, conductors, insulators, and hardware to ensure structural integrity and safety."
+]
+},
+
+{
+"tag":"tools",
+"patterns":[
+"tools for line workers",
+"electrical maintenance tools",
+"insulated tools usage",
+"what tools electricians use",
+"equipment used in line repair",
+"power line tools",
+"worker repair equipment",
+"insulated tool requirement",
+"tools for cable work",
+"maintenance toolkit electrical",
+"electrician field tools",
+"line repair equipment"
+],
+"responses":[
+"Line workers use insulated tools, voltage testers, climbing gear, cable jointing equipment, and safety grounding tools."
+]
+},
+
+{
+"tag":"compliance",
+"patterns":[
+"electrical safety regulations",
+"worker compliance rules",
+"electrical industry regulations",
+"who regulates electrical workers",
+"electrical worker license rules",
+"training requirements electricians",
+"regulatory body electrical workers",
+"safety compliance requirements",
+"certification for line workers",
+"electrical training regulations",
+"network operator rules",
+"worker qualification electrical"
+],
+"responses":[
+"Electrical workers must follow national regulations, hold proper certification, and comply with safety standards set by regulatory authorities."
+]
+},
+
+{
+"tag":"training",
+"patterns":[
+"why safety training required",
+"worker training electrical network",
+"training for line mechanics",
+"why workers learn safety rules",
+"competency training electrical",
+"training topics electricians",
+"safety training importance",
+"learning distribution network work",
+"skills needed line mechanic",
+"training for electrical safety",
+"worker education electrical",
+"industry training requirements"
+],
+"responses":[
+"Training ensures workers understand electrical hazards, equipment operation, and safe procedures required for network maintenance."
+]
+}
+
+]
+}

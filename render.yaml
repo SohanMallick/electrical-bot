@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: electrical-bot
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.0
+      - key: GEMINI_API_KEY
+        sync: false

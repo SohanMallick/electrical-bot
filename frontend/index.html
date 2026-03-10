@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrical Training Assistant</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page">
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-copy">
+        <span class="brand-title">Electrical</span>
+        <span class="brand-title">Safety Desk</span>
+        <span class="brand-subtitle">Field training assistant</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero-media">
+        <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+          <p class="hero-kicker">Electrical operations support</p>
+          <h1>Work with electricity like the risk is real.</h1>
+          <p class="hero-text">
+            Fast guidance for electrical safety checks, lockout preparation, emergency response,
+            and day-to-day training questions.
+          </p>
+
+          <div class="hero-actions" id="topics">
+            <button class="topic-chip" type="button" data-prompt="What PPE should I wear for electrical panel work?">PPE check</button>
+            <button class="topic-chip" type="button" data-prompt="Explain lockout tagout before maintenance.">Lockout/tagout</button>
+            <button class="topic-chip" type="button" data-prompt="What should I do before approaching arc flash risk?">Arc flash</button>
+            <button class="topic-chip" type="button" data-prompt="What are the first emergency steps after an electrical shock?">Emergency steps</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-strip" id="briefing">
+      <article class="info-card">
+        <span class="info-label">Shift focus</span>
+        <strong>Panel isolation and controlled shutdown</strong>
+      </article>
+      <article class="info-card">
+        <span class="info-label">Use case</span>
+        <strong>Toolbox talks and field reference</strong>
+      </article>
+      <article class="info-card">
+        <span class="info-label">Status</span>
+        <strong>Assistant online</strong>
+      </article>
+    </section>
+
+    <section class="chat-panel" id="chat-panel">
+      <div class="chat-panel-header">
+        <div>
+          <p class="section-kicker">Ask the assistant</p>
+          <h2>Safety guidance chat</h2>
+        </div>
+        <p class="section-note">Use the prompts above or ask a site-specific question.</p>
+      </div>
+
+      <section id="chat" class="chat" aria-live="polite">
+        <div class="empty-state">
+          <p class="empty-kicker">Ready for briefing</p>
+          <h3>Start with a real field question.</h3>
+          <p>Example: "What checks should I complete before opening a distribution panel?"</p>
+        </div>
+      </section>
+
+      <form class="composer" onsubmit="sendMessage(event)">
+        <label class="sr-only" for="message">Ask a safety question</label>
+        <input
+          id="message"
+          type="text"
+          placeholder="Ask about electrical safety..."
+          autocomplete="off"
+        />
+        <button id="send-button" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
