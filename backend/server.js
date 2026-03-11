@@ -68,13 +68,33 @@ ${question}
 Give a clear safety focused answer.
 `;
 
-  // Use the best available free tier model
-  const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash",
-  });
+  try {
+    // Attempt to use Google Gemini
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.5-flash",
+    });
 
-  const result = await model.generateContent(prompt);
-  return result.response.text();
+    const result = await model.generateContent(prompt);
+    return result.response.text();
+  } catch (error) {
+    // Check if the error is a 429 Too Many Requests (Quota limit)
+    if (error.status === 429 && process.env.GROQ_API_KEY) {
+      console.warn("Gemini quota exceeded (429). Falling back to Groq API...");
+      
+      const { Groq } = require("groq-sdk");
+      const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+      
+      const completion = await groq.chat.completions.create({
+        messages: [{ role: "user", content: prompt }],
+        model: "llama-3.3-70b-versatile",
+      });
+      
+      return completion.choices[0].message.content;
+    }
+    
+    // If it's not a 429 or we don't have a Groq key, rethrow the error
+    throw error;
+  }
 }
 
 app.post("/chat", async (req, res) => {
