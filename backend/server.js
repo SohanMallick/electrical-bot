@@ -70,7 +70,7 @@ Give a clear safety focused answer.
 
   // Use the best available free tier model
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-1.5-flash-latest",
   });
 
   const result = await model.generateContent(prompt);
