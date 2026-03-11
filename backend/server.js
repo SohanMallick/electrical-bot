@@ -78,7 +78,11 @@ Give a clear safety focused answer.
     return result.response.text();
   } catch (error) {
     // Check if the error is a 429 Too Many Requests (Quota limit)
-    if (error.status === 429 && process.env.GROQ_API_KEY) {
+    if (error.status === 429) {
+      if (!process.env.GROQ_API_KEY) {
+        console.error("Gemini quota exceeded (429), but GROQ_API_KEY is not set in environment variables. Cannot trigger failover.");
+        throw error;
+      }
       console.warn("Gemini quota exceeded (429). Falling back to Groq API...");
       
       const { Groq } = require("groq-sdk");
@@ -92,7 +96,7 @@ Give a clear safety focused answer.
       return completion.choices[0].message.content;
     }
     
-    // If it's not a 429 or we don't have a Groq key, rethrow the error
+    // If it's not a 429, rethrow the error
     throw error;
   }
 }
